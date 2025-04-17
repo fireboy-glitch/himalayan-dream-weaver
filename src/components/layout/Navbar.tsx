@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown, Home } from "lucide-react";
@@ -15,11 +16,13 @@ const Navbar = () => {
 
   const navItems = [
     {
+      id: "home",
       label: <Home className="w-5 h-5" />,
       path: "/",
       dropdown: false,
     },
     {
+      id: "treks",
       label: "Treks",
       path: "/treks",
       dropdown: true,
@@ -33,6 +36,7 @@ const Navbar = () => {
       ],
     },
     {
+      id: "tours",
       label: "Tours",
       path: "/tours",
       dropdown: true,
@@ -45,11 +49,13 @@ const Navbar = () => {
       ],
     },
     {
+      id: "excess-now",
       label: "Excess Now",
       path: "/excess-now",
       dropdown: false,
     },
     {
+      id: "about-us",
       label: "About Us",
       path: "/about",
       dropdown: true,
@@ -61,11 +67,13 @@ const Navbar = () => {
       ],
     },
     {
+      id: "blog",
       label: "Blog",
       path: "/blog",
       dropdown: false,
     },
     {
+      id: "contact",
       label: "Contact",
       path: "/contact",
       dropdown: false,
@@ -91,11 +99,11 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <div key={item.label} className="relative group">
+              <div key={item.id} className="relative group">
                 {item.dropdown ? (
                   <div
                     className="flex items-center space-x-1 cursor-pointer nav-link"
-                    onClick={() => handleDropdown(item.label)}
+                    onClick={() => handleDropdown(item.id)}
                   >
                     <span>{item.label}</span>
                     <ChevronDown size={16} />
@@ -143,22 +151,22 @@ const Navbar = () => {
           <div className="container-custom">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <div key={item.label}>
+                <div key={item.id}>
                   {item.dropdown ? (
                     <div>
                       <div
                         className="flex justify-between items-center py-2"
-                        onClick={() => handleDropdown(item.label)}
+                        onClick={() => handleDropdown(item.id)}
                       >
                         <span className="font-medium">{item.label}</span>
                         <ChevronDown
                           size={16}
                           className={`transform transition-transform ${
-                            activeDropdown === item.label ? "rotate-180" : ""
+                            activeDropdown === item.id ? "rotate-180" : ""
                           }`}
                         />
                       </div>
-                      {activeDropdown === item.label && (
+                      {activeDropdown === item.id && (
                         <div className="pl-4 mt-2 space-y-2 border-l-2 border-mountain-200">
                           {item.dropdownItems?.map((dropdownItem) => (
                             <Link
