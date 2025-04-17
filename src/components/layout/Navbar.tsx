@@ -1,7 +1,6 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -16,7 +15,7 @@ const Navbar = () => {
 
   const navItems = [
     {
-      label: "Home",
+      label: <Home className="w-5 h-5" />,
       path: "/",
       dropdown: false,
     },

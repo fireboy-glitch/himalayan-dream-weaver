@@ -8,6 +8,7 @@ import Testimonials from "@/components/home/Testimonials";
 import ExcessNowCta from "@/components/home/ExcessNowCta";
 import BlogPreview from "@/components/home/BlogPreview";
 import Affiliations from "@/components/home/Affiliations";
+import CollaborationSection from "@/components/home/CollaborationSection";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Hero />
       <FeaturedTreks />
       <WhyChooseUs />
+      <CollaborationSection />
       <Testimonials />
       <ExcessNowCta />
       <BlogPreview />

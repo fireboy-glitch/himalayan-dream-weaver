@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube, Heart } from "lucide-react";
@@ -160,7 +159,7 @@ const Footer = () => {
             © {currentYear} Excess To Himalayas. All rights reserved.
           </p>
           <p className="mt-2 text-sm">
-            Made with <Heart size={14} className="inline text-sunset-500" /> in Nepal
+            Made by Rizan Subedi
           </p>
         </div>
       </div>
