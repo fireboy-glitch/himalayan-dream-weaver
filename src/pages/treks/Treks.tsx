@@ -11,7 +11,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Calendar, Clock, Mountain, thermometer } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  Mountain,
+  Thermometer
+} from "lucide-react";
 
 const treks = [
   {
@@ -121,7 +126,7 @@ const Treks = () => {
                       <span>{trek.difficulty}</span>
                     </div>
                     <div className="flex items-center">
-                      <thermometer className="w-4 h-4 mr-2 text-mountain-600" />
+                      <Thermometer className="w-4 h-4 mr-2 text-mountain-600" />
                       <span>Max altitude: {trek.altitude}</span>
                     </div>
                     <div className="flex items-center">
