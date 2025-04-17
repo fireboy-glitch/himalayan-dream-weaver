@@ -1,15 +1,54 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be implemented later
+    setIsSubmitting(true);
+
+    try {
+      // In a real implementation, this would send data to a backend API
+      // For now, we'll simulate a successful API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      console.log("Form data:", { name, email, phone, message });
+      console.log("This would be sent to rizanmk27@gmail.com");
+      
+      setIsSuccess(true);
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you as soon as possible.",
+      });
+      
+      // Reset form
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -29,41 +68,69 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h2 className="heading-sm mb-6">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Input
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-full"
-                      required
-                    />
+                {isSuccess ? (
+                  <div className="text-center py-8">
+                    <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                    <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
+                    <p className="text-gray-600 mb-6">
+                      Thank you for contacting us. We'll respond to your message as soon as possible.
+                    </p>
+                    <Button 
+                      onClick={() => setIsSuccess(false)}
+                      variant="outline"
+                    >
+                      Send Another Message
+                    </Button>
                   </div>
-                  <div>
-                    <Input
-                      type="email"
-                      placeholder="Your Email"
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      type="tel"
-                      placeholder="Your Phone"
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <Textarea
-                      placeholder="Your Message"
-                      className="w-full min-h-[150px]"
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full bg-mountain-600 hover:bg-mountain-700">
-                    Send Message
-                  </Button>
-                </form>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <Input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-full"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        type="email"
+                        placeholder="Your Email"
+                        className="w-full"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        type="tel"
+                        placeholder="Your Phone"
+                        className="w-full"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Textarea
+                        placeholder="Your Message"
+                        className="w-full min-h-[150px]"
+                        required
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-mountain-600 hover:bg-mountain-700"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                )}
               </div>
 
               {/* Contact Information */}
@@ -102,6 +169,13 @@ const Contact = () => {
                           className="hover:text-mountain-600"
                         >
                           excesstohimalayas@gmail.com
+                        </a>
+                        <br />
+                        <a
+                          href="mailto:rizanmk27@gmail.com"
+                          className="hover:text-mountain-600"
+                        >
+                          rizanmk27@gmail.com
                         </a>
                       </p>
                     </div>

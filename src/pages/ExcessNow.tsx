@@ -1,10 +1,106 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import TripFinder from "@/components/excess-now/TripFinder";
 import HowItWorks from "@/components/excess-now/HowItWorks";
+import TrekResults from "@/components/excess-now/TrekResults";
+import { allTreks } from "@/data/treksData";
+import { useToast } from "@/hooks/use-toast";
 
 const ExcessNow = () => {
+  const [searchResults, setSearchResults] = useState(allTreks);
+  const [hasSearched, setHasSearched] = useState(false);
+  const { toast } = useToast();
+
+  const handleSearch = (filters) => {
+    setHasSearched(true);
+
+    let filteredTreks = [...allTreks];
+
+    // Filter by type
+    if (filters.type) {
+      filteredTreks = filteredTreks.filter(trek => {
+        const trekType = trek.type.toLowerCase();
+        return trekType.includes(filters.type.toLowerCase());
+      });
+    }
+
+    // Filter by difficulty
+    if (filters.difficulty) {
+      filteredTreks = filteredTreks.filter(trek => {
+        const trekDifficulty = trek.difficulty.toLowerCase();
+        return trekDifficulty.includes(filters.difficulty.toLowerCase());
+      });
+    }
+
+    // Filter by duration
+    if (filters.duration) {
+      filteredTreks = filteredTreks.filter(trek => {
+        const days = trek.duration.match(/\d+/g);
+        if (!days) return false;
+        
+        const minDays = parseInt(days[0]);
+        const maxDays = days.length > 1 ? parseInt(days[1]) : minDays;
+        
+        switch (filters.duration) {
+          case "1-3":
+            return minDays >= 1 && maxDays <= 3;
+          case "4-7":
+            return (minDays >= 4 && minDays <= 7) || (maxDays >= 4 && maxDays <= 7);
+          case "8-14":
+            return (minDays >= 8 && minDays <= 14) || (maxDays >= 8 && maxDays <= 14);
+          case "15-21":
+            return (minDays >= 15 && minDays <= 21) || (maxDays >= 15 && maxDays <= 21);
+          case "22+":
+            return minDays >= 22 || maxDays >= 22;
+          default:
+            return true;
+        }
+      });
+    }
+
+    // Filter by budget
+    if (filters.budget) {
+      filteredTreks = filteredTreks.filter(trek => {
+        switch (filters.budget) {
+          case "economy":
+            return trek.price >= 500 && trek.price <= 1000;
+          case "standard":
+            return trek.price > 1000 && trek.price <= 1500;
+          case "comfort":
+            return trek.price > 1500 && trek.price <= 2000;
+          case "luxury":
+            return trek.price > 2000 && trek.price <= 3000;
+          case "premium":
+            return trek.price > 3000;
+          default:
+            return true;
+        }
+      });
+    }
+
+    // Filter by region
+    if (filters.region) {
+      filteredTreks = filteredTreks.filter(trek => {
+        return trek.region.toLowerCase().includes(filters.region.toLowerCase());
+      });
+    }
+
+    // Filter by special features
+    if (filters.special && filters.special.length > 0) {
+      filteredTreks = filteredTreks.filter(trek => {
+        return filters.special.some(feature => trek.special.includes(feature));
+      });
+    }
+
+    setSearchResults(filteredTreks);
+    
+    toast({
+      title: `Found ${filteredTreks.length} trips matching your criteria`,
+      description: "Scroll down to see the results",
+    });
+  };
+
   return (
     <Layout>
       <section className="py-12 bg-mountain-50">
@@ -17,7 +113,9 @@ const ExcessNow = () => {
             </p>
           </div>
           
-          <TripFinder />
+          <TripFinder onSearch={handleSearch} />
+
+          {hasSearched && <TrekResults treks={searchResults} />}
         </div>
       </section>
       

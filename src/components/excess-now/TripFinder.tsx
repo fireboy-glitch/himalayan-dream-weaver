@@ -12,7 +12,11 @@ interface TripFilters {
   special: string[];
 }
 
-const TripFinder = () => {
+interface TripFinderProps {
+  onSearch: (filters: TripFilters) => void;
+}
+
+const TripFinder: React.FC<TripFinderProps> = ({ onSearch }) => {
   const [filters, setFilters] = useState<TripFilters>({
     type: "",
     difficulty: "",
@@ -40,8 +44,7 @@ const TripFinder = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Searching with filters:", filters);
-    // In a real implementation, this would trigger a search with the filters
+    onSearch(filters);
   };
 
   const specialFeatures = [
@@ -52,7 +55,8 @@ const TripFinder = () => {
     "Wildlife Viewing",
     "Peak Climbing",
     "Luxury Accommodations",
-    "Helicopter Return"
+    "Helicopter Return",
+    "Best Seller"
   ];
 
   return (
@@ -72,8 +76,8 @@ const TripFinder = () => {
               <option value="trek">Trekking</option>
               <option value="tour">Cultural Tour</option>
               <option value="climb">Peak Climbing</option>
-              <option value="expedition">Expedition</option>
-              <option value="hike">Day Hike</option>
+              <option value="luxury">Luxury Trek</option>
+              <option value="wildlife">Wildlife Tour</option>
             </select>
           </div>
           
@@ -89,7 +93,6 @@ const TripFinder = () => {
               <option value="moderate">Moderate</option>
               <option value="challenging">Challenging</option>
               <option value="difficult">Difficult</option>
-              <option value="extreme">Extreme</option>
             </select>
           </div>
           
@@ -140,7 +143,8 @@ const TripFinder = () => {
               <option value="mustang">Upper Mustang</option>
               <option value="dolpo">Dolpo</option>
               <option value="kanchenjunga">Kanchenjunga</option>
-              <option value="makalu">Makalu</option>
+              <option value="kathmandu">Kathmandu</option>
+              <option value="chitwan">Chitwan</option>
             </select>
           </div>
           

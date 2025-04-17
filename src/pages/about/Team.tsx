@@ -6,63 +6,63 @@ import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 
 const teamMembers = [
   {
-    name: "Mingma Sherpa",
+    name: "Shambhu Subedi",
     role: "Founder & CEO",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    bio: "With over 20 years of mountaineering experience, including multiple Everest summits, Mingma founded Excess To Himalayas to share his passion for the Himalayas with the world. His extensive knowledge of the mountains and commitment to sustainable tourism have shaped our company's core values.",
+    bio: "With over 20 years of mountaineering experience, including multiple Everest summits, Shambhu founded Excess To Himalayas to share his passion for the Himalayas with the world. His extensive knowledge of the mountains and commitment to sustainable tourism have shaped our company's core values.",
     socials: {
       facebook: "#",
       instagram: "#",
       linkedin: "#",
-      email: "mingma@excesstohimalayas.com"
+      email: "shambhu@excesstohimalayas.com"
     }
   },
   {
-    name: "Lakpa Doma",
-    role: "Operations Manager",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-    bio: "Lakpa has been with us since the beginning, overseeing all operational aspects of our treks and tours. Her attention to detail and organizational skills ensure that every journey runs smoothly, while her warm personality makes clients feel welcome and cared for throughout their adventure.",
-    socials: {
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-      email: "lakpa@excesstohimalayas.com"
-    }
-  },
-  {
-    name: "Pasang Nuru",
-    role: "Head Trekking Guide",
-    image: "https://images.unsplash.com/photo-1531727991582-cfd25ce79613",
-    bio: "With certification from the Nepal Mountaineering Association and 15 years of guiding experience, Pasang leads our team of trekking guides. His knowledge of Himalayan routes, culture, and safety protocols is unmatched, making him an invaluable leader for our trekking operations.",
-    socials: {
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-      email: "pasang@excesstohimalayas.com"
-    }
-  },
-  {
-    name: "Dawa Yangzom",
-    role: "Cultural Tours Director",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956",
-    bio: "With a degree in Nepalese History and Culture, Dawa creates immersive cultural experiences that go beyond typical tourist attractions. Her extensive network of local contacts and passion for preserving traditional practices allow our clients to experience authentic Nepal.",
-    socials: {
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-      email: "dawa@excesstohimalayas.com"
-    }
-  },
-  {
-    name: "Pemba Tashi",
-    role: "Customer Relations Manager",
+    name: "Dipak Sapkota",
+    role: "Co-Office's Partnered Head",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
-    bio: "Pemba handles all client communications and ensures that every traveler receives personalized attention from inquiry to post-trip follow-up. His friendly demeanor and problem-solving skills make him a favorite among our clients and partners.",
+    bio: "Dipak brings over 15 years of experience in the tourism industry to Excess To Himalayas. As Co-Office's Partnered Head, he oversees strategic partnerships and business development, ensuring that we continue to provide exceptional experiences while growing our network of trusted partners.",
     socials: {
       facebook: "#",
       instagram: "#",
       linkedin: "#",
-      email: "pemba@excesstohimalayas.com"
+      email: "dipak@excesstohimalayas.com"
+    }
+  },
+  {
+    name: "Dinesh Sapkota",
+    role: "Office Executive Representative",
+    image: "https://images.unsplash.com/photo-1531727991582-cfd25ce79613",
+    bio: "Dinesh manages day-to-day operations at Excess To Himalayas, ensuring that everything runs smoothly for both clients and staff. His organizational skills and attention to detail help maintain our high standards of service and efficiency.",
+    socials: {
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+      email: "dinesh@excesstohimalayas.com"
+    }
+  },
+  {
+    name: "Dilli Parsad Lamsal",
+    role: "Senior Guide",
+    image: "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc",
+    bio: "With certification from the Nepal Mountaineering Association and 18 years of guiding experience, Dilli leads our team of trekking guides. His unmatched knowledge of Himalayan routes, culture, and safety protocols has made him one of Nepal's most respected guides and a valuable leader for our trekking operations.",
+    socials: {
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+      email: "dilli@excesstohimalayas.com"
+    }
+  },
+  {
+    name: "Rizan Subedi",
+    role: "Media Manager & IT Head",
+    image: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1",
+    bio: "Rizan oversees all digital initiatives and technology infrastructure at Excess To Himalayas. His expertise in digital marketing, web development, and IT systems ensures that we stay connected with our clients and leverage technology to enhance the customer experience.",
+    socials: {
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+      email: "rizanmk27@gmail.com"
     }
   },
   {

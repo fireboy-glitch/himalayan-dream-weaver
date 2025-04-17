@@ -24,6 +24,7 @@ import KathmanduValley from "./pages/tours/KathmanduValley";
 import PokharaCity from "./pages/tours/PokharaCity";
 import ChitwanSafari from "./pages/tours/ChitwanSafari";
 import LumbiniPilgrimage from "./pages/tours/LumbiniPilgrimage";
+import TrekPayment from "./pages/treks/TrekPayment";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/treks/langtang-valley" element={<LangtangValley />} />
           <Route path="/treks/manaslu-circuit" element={<MansaluCircuit />} />
           <Route path="/treks/upper-mustang" element={<UpperMustang />} />
+          <Route path="/treks/:trekId/book" element={<TrekPayment />} />
           
           {/* Tour Routes */}
           <Route path="/tours" element={<Tours />} />
