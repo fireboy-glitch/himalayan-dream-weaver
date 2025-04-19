@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -26,6 +25,7 @@ import PokharaCity from "./pages/tours/PokharaCity";
 import ChitwanSafari from "./pages/tours/ChitwanSafari";
 import LumbiniPilgrimage from "./pages/tours/LumbiniPilgrimage";
 import TrekPayment from "./pages/treks/TrekPayment";
+import BookingLanding from "./pages/BookingLanding";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +63,9 @@ const App = () => (
           <Route path="/about/team" element={<Team />} />
           <Route path="/about/legal-documents" element={<LegalDocuments />} />
           <Route path="/about/affiliations" element={<Affiliations />} />
+          
+          {/* Booking Route */}
+          <Route path="/booking" element={<BookingLanding />} />
           
           {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
