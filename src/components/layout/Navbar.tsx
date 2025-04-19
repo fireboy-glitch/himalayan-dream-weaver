@@ -1,8 +1,8 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "@/assets/logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,11 +85,7 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src="/src/assets/images/logo-placeholder.png"
-              alt="Excess To Himalayas"
-              className="h-10 w-auto"
-            />
+            <Logo />
             <div>
               <h1 className="text-xl font-bold text-mountain-800">Excess To Himalayas</h1>
               <p className="text-xs text-gray-600">Summiting dreams since 2006</p>
