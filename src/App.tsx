@@ -26,6 +26,9 @@ import ChitwanSafari from "./pages/tours/ChitwanSafari";
 import LumbiniPilgrimage from "./pages/tours/LumbiniPilgrimage";
 import TrekPayment from "./pages/treks/TrekPayment";
 import BookingLanding from "./pages/BookingLanding";
+import GhorepaniPoonHill from "./pages/treks/GhorepaniPoonHill";
+import MardiHimal from "./pages/treks/MardiHimal";
+import KanchenjungaBaseCamp from "./pages/treks/KanchenjungaBaseCamp";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +52,9 @@ const App = () => (
           <Route path="/treks/langtang-valley" element={<LangtangValley />} />
           <Route path="/treks/manaslu-circuit" element={<MansaluCircuit />} />
           <Route path="/treks/upper-mustang" element={<UpperMustang />} />
+          <Route path="/treks/ghorepani-poon-hill" element={<GhorepaniPoonHill />} />
+          <Route path="/treks/mardi-himal" element={<MardiHimal />} />
+          <Route path="/treks/kanchenjunga-base-camp" element={<KanchenjungaBaseCamp />} />
           <Route path="/treks/:trekId/book" element={<TrekPayment />} />
           
           {/* Tour Routes */}
