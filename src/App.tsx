@@ -9,6 +9,7 @@ import ExcessNow from "./pages/ExcessNow";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Treks from "./pages/treks/Treks";
 import Tours from "./pages/tours/Tours";
 import About from "./pages/about/About";
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/excess-now" element={<ExcessNow />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           
           {/* Trek Routes */}
           <Route path="/treks" element={<Treks />} />
